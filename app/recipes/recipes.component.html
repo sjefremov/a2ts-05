@@ -1,0 +1,21 @@
+<h3>Recipes</h3>
+
+<a routerLink="/recipes/add">Add new</a>
+<table class="table table-condesed table-hover">
+    <thead>
+        <tr>
+            <th>Index</th>
+            <th>Id</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let item of recipes; let idx = index">
+            <td>{{idx}}</td>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td><input type="button" (click)="view(item.id)" value="View"/></td>
+        </tr>
+    </tbody>
+</table>
