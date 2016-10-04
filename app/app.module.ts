@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent }  from './app.component';
 import { DashboardComponent }  from './dashboard/dashboard.component';
 import { RecipesComponent, RecipesService, RecipeViewComponent, AddRecipeComponent }  from './recipes/index';
-
+import { IngredentsComponent, IngredientsService, AddIngredientComponent } from './ingredients/index';
 
 import { routing, appRoutingProviders } from './app.routings';
 
@@ -17,9 +17,11 @@ import { routing, appRoutingProviders } from './app.routings';
     DashboardComponent,
     RecipesComponent,
     RecipeViewComponent,
-    AddRecipeComponent
+    AddRecipeComponent,
+    IngredentsComponent,
+    AddIngredientComponent
   ],
   bootstrap: [ AppComponent ],
-  providers : [ appRoutingProviders, RecipesService]
+  providers : [ appRoutingProviders, RecipesService, IngredientsService]
 })
 export class AppModule { }

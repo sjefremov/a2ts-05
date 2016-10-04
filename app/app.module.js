@@ -15,6 +15,7 @@ var forms_1 = require('@angular/forms');
 var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var index_1 = require('./recipes/index');
+var index_2 = require('./ingredients/index');
 var app_routings_1 = require('./app.routings');
 var AppModule = (function () {
     function AppModule() {
@@ -27,10 +28,12 @@ var AppModule = (function () {
                 dashboard_component_1.DashboardComponent,
                 index_1.RecipesComponent,
                 index_1.RecipeViewComponent,
-                index_1.AddRecipeComponent
+                index_1.AddRecipeComponent,
+                index_2.IngredentsComponent,
+                index_2.AddIngredientComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [app_routings_1.appRoutingProviders, index_1.RecipesService]
+            providers: [app_routings_1.appRoutingProviders, index_1.RecipesService, index_2.IngredientsService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
