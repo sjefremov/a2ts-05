@@ -1,0 +1,38 @@
+{
+  "recipes": [
+    {
+      "id": 3,
+      "name": "recipe-3"
+    },
+    {
+      "id": 4,
+      "name": "recipe-4"
+    },
+    {
+      "name": "Added recipe 1",
+      "id": 5
+    }
+  ],
+  "ingredients": [
+    {
+      "id": 5,
+      "name": "ingredient-5",
+      "recipeId": 3
+    },
+    {
+      "id": 6,
+      "name": "ingredient-6",
+      "recipeId": 3
+    },
+    {
+      "id": 7,
+      "name": "ingredient-7",
+      "recipeId": 4
+    },
+    {
+      "id": 8,
+      "name": "ingredient-8",
+      "recipeId": 4
+    }
+  ]
+}
