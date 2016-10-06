@@ -9,29 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var index_1 = require('./login/index');
+var login_service_1 = require('./login.service');
 var router_1 = require('@angular/router');
-var AppComponent = (function () {
-    function AppComponent(authService, router) {
-        this.authService = authService;
+var LoginComponent = (function () {
+    function LoginComponent(loginService, router) {
+        this.loginService = loginService;
         this.router = router;
+        this.errMsg = '';
     }
-    AppComponent.prototype.isLoggedIn = function () {
-        this.authService.isAuthenticated();
+    LoginComponent.prototype.ngOnInit = function () { };
+    LoginComponent.prototype.doLogin = function () {
+        if (this.loginService.doLogin(this.user, this.pass)) {
+            this.router.navigate(['/recipes']);
+        }
+        else {
+            this.errMsg = 'Problem with logging...';
+        }
     };
-    AppComponent.prototype.logout = function () {
-        this.authService.setLogout();
-        this.router.navigate(['/login']);
-    };
-    AppComponent = __decorate([
+    LoginComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html'
+            selector: 'login',
+            templateUrl: 'login.component.html'
         }), 
-        __metadata('design:paramtypes', [index_1.AuthService, router_1.Router])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [login_service_1.LoginService, router_1.Router])
+    ], LoginComponent);
+    return LoginComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.LoginComponent = LoginComponent;
+//# sourceMappingURL=login.component.js.map

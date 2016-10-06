@@ -16,10 +16,18 @@ var RecipesService = (function () {
         this.http = http;
         this.baseUrl = 'http://localhost:8083/recipes/';
     }
-    RecipesService.prototype.getAll = function () {
-        return this.http.get(this.baseUrl)
+    RecipesService.prototype.getAll = function (page, search) {
+        var tempUrl = this.baseUrl + '?_page=' + page;
+        if (search.name) {
+            tempUrl += '&name_like=' + search.name;
+        }
+        return this.http.get(tempUrl)
             .map(function (response) { return response.json(); });
     };
+    // filter(search : any) {
+    //     return this.http.get(this.baseUrl + '?name_like=' + search.name)
+    //         .map((response: Response) => response.json());
+    // }
     RecipesService.prototype.get = function (id) {
         return this.http.get(this.baseUrl + id + '?_embed=ingredients')
             .map(function (response) { return response.json(); });

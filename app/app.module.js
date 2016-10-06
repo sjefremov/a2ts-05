@@ -16,6 +16,7 @@ var app_component_1 = require('./app.component');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var index_1 = require('./recipes/index');
 var index_2 = require('./ingredients/index');
+var index_3 = require('./login/index');
 var app_routings_1 = require('./app.routings');
 var AppModule = (function () {
     function AppModule() {
@@ -30,10 +31,11 @@ var AppModule = (function () {
                 index_1.RecipeViewComponent,
                 index_1.AddRecipeComponent,
                 index_2.IngredentsComponent,
-                index_2.AddIngredientComponent
+                index_2.AddIngredientComponent,
+                index_3.LoginComponent
             ],
             bootstrap: [app_component_1.AppComponent],
-            providers: [app_routings_1.appRoutingProviders, index_1.RecipesService, index_2.IngredientsService]
+            providers: [app_routings_1.appRoutingProviders, index_1.RecipesService, index_2.IngredientsService, index_3.LoginService, index_3.AuthService]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);

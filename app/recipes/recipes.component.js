@@ -15,11 +15,25 @@ var RecipesComponent = (function () {
     function RecipesComponent(service, router) {
         this.service = service;
         this.router = router;
+        this.page = 1;
+        this.search = {
+            name: ''
+        };
     }
     RecipesComponent.prototype.ngOnInit = function () { this.loadRecipes(); };
+    RecipesComponent.prototype.prev = function () {
+        if (this.page > 1) {
+            this.page--;
+            this.loadRecipes();
+        }
+    };
+    RecipesComponent.prototype.next = function () {
+        this.page++;
+        this.loadRecipes();
+    };
     RecipesComponent.prototype.loadRecipes = function () {
         var _this = this;
-        this.service.getAll().subscribe(function (results) { return _this.recipes = results; }, function (error) { return _this.errorMessage = error; });
+        this.service.getAll(this.page, this.search).subscribe(function (results) { return _this.recipes = results; }, function (error) { return _this.errorMessage = error; });
     };
     RecipesComponent.prototype.view = function (id) {
         //console.log(id);

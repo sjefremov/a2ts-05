@@ -2,6 +2,8 @@
   <li class="active"><a routerLink="/">Dashboard</a></li>
   <li><a routerLink="/recipes">Recipes</a></li>
   <li><a routerLink="/ingredients">Ingredients</a></li>
+  <li><a *ngIf="!isLoggedIn()" routerLink="/login">Login</a></li>
+  <li><a *ngIf="isLoggedIn()" (click) = "logout()" routerLink="/login">Logout</a></li>
 </ul>
 
 <!-- Routed views go here -->

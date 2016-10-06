@@ -3,8 +3,10 @@ var router_1 = require('@angular/router');
 var dashboard_component_1 = require('./dashboard/dashboard.component');
 var index_1 = require('./recipes/index');
 var index_2 = require('./ingredients/index');
+var index_3 = require('./login/index');
 var appRoutes = [
     { path: '', component: dashboard_component_1.DashboardComponent },
+    { path: 'login', component: index_3.LoginComponent },
     {
         path: 'recipes',
         children: [

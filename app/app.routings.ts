@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RecipesComponent, RecipeViewComponent, AddRecipeComponent } from './recipes/index';
 import { IngredentsComponent, AddIngredientComponent } from './ingredients/index';
+import { LoginComponent } from './login/index';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'login', component: LoginComponent },
   { 
     path: 'recipes',
     children : [

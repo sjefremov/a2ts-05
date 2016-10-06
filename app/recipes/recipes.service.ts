@@ -10,10 +10,22 @@ export class RecipesService {
 
     constructor(private http: Http) { }
 
-    getAll() {
-        return this.http.get(this.baseUrl)
+    getAll(page : number, search : any) {
+
+        let tempUrl = this.baseUrl + '?_page=' + page;
+
+        if (search.name) {
+            tempUrl += '&name_like=' + search.name;
+        }
+
+        return this.http.get(tempUrl)
             .map((response: Response) => response.json());
     }
+
+    // filter(search : any) {
+    //     return this.http.get(this.baseUrl + '?name_like=' + search.name)
+    //         .map((response: Response) => response.json());
+    // }
 
     get(id:number) {
         return this.http.get(this.baseUrl + id + '?_embed=ingredients') 

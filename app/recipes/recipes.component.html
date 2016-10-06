@@ -1,6 +1,10 @@
 <h3>Recipes</h3>
 
-<a routerLink="/recipes/add">Add new</a>
+<a routerLink="/recipes/add">Add new</a><br />
+<label for="">Name</label>
+<input type="text" name="name" [(ngModel)]="search.name" (keypress)="loadRecipes()" />
+<input type="button" (click)="loadRecipes()" value="Search" />
+
 <table class="table table-condesed table-hover">
     <thead>
         <tr>
@@ -19,3 +23,10 @@
         </tr>
     </tbody>
 </table>
+Current page: {{page}}
+<div class="row">
+    <div class="col-sm-6">
+        <button type="button" (click)="prev()"  class="btn btn-default">Prev</button>
+        <button type="button" (click)="next()"  class="btn btn-primary">Next</button>
+    </div>
+</div>

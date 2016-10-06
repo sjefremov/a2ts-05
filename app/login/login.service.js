@@ -9,29 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var index_1 = require('./login/index');
-var router_1 = require('@angular/router');
-var AppComponent = (function () {
-    function AppComponent(authService, router) {
+var auth_service_1 = require('./auth.service');
+var LoginService = (function () {
+    function LoginService(authService) {
         this.authService = authService;
-        this.router = router;
     }
-    AppComponent.prototype.isLoggedIn = function () {
-        this.authService.isAuthenticated();
-    };
-    AppComponent.prototype.logout = function () {
+    LoginService.prototype.doLogin = function (user, pass) {
+        //TODO on server
+        if (user === "admin" && pass === "admin") {
+            this.authService.setLogin(user);
+            return true;
+        }
         this.authService.setLogout();
-        this.router.navigate(['/login']);
+        return false;
     };
-    AppComponent = __decorate([
-        core_1.Component({
-            moduleId: module.id,
-            selector: 'my-app',
-            templateUrl: 'app.component.html'
-        }), 
-        __metadata('design:paramtypes', [index_1.AuthService, router_1.Router])
-    ], AppComponent);
-    return AppComponent;
+    LoginService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [auth_service_1.AuthService])
+    ], LoginService);
+    return LoginService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.LoginService = LoginService;
+//# sourceMappingURL=login.service.js.map
